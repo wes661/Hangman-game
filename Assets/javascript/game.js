@@ -1,5 +1,5 @@
 //Create an array of words
-var words = ["mario", "zelda", "metroid", "kirby", "sonic", "starfox"];
+var words = [" mario", " zelda", " metroid", " kirby", " contra", " starfox"];
 //Choose word randomly
 
 var randWord = Math.floor(Math.random() * words.length);
@@ -19,17 +19,13 @@ var blankWord = () => {
 	for(var i = 0; i < chosenWord.length; i++ ) {
 		blankSpaces.push("_");
 
-		
+
 		
 	}
 	return blankSpaces;
 
 
-	var html =
-          "<p>Word: " + blankWord() + "</p>"; 
-          
-        // Set the inner HTML contents of the #game div to our html string
-        document.querySelector("#game").innerHTML = html;
+	
 		
 }
 
@@ -78,7 +74,7 @@ document.addEventListener("keypress", (event) => {
 			
 
 		var html =
-          "<p>Incorrect Guess: " + incorrectWord + "</p>" +
+          "<p>Incorrect Guess: " + incorrectWord.join(' ') + "</p>" +
           "<br>" +
           "<p>Guesses Left: " + guessesLeft + "<p>";
         // Set the inner HTML contents of the #game div to our html string
@@ -91,8 +87,7 @@ document.addEventListener("keypress", (event) => {
 
 });
 
-//Check if guess is right and push to right array
-//Check if guess is wrong and push to wrong array
+
 
 
 
