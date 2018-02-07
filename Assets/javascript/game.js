@@ -26,13 +26,11 @@ var blankWord = () => {
 
 
 	
-		
 }
 
+		
 
-
-
-console.log(blankWord())
+console.log(blankWord());
 
 //Get user guess
 document.addEventListener("keypress", (event) => {
@@ -48,12 +46,16 @@ document.addEventListener("keypress", (event) => {
 		if(blankSpaces.join('') == chosenWord) {
 			
 			alert("You Win!");
+			wins++;
+			
 		}
 	
 		
 
 		var html =
-          "<p>Word: " + blankSpaces.join(' ') + "</p>"; 
+          "<p>Word: " + blankSpaces.join(' ') + "</p>" +
+          "<br>" +
+          "<p>Wins: " + wins + "</p>"; 
           
         // Set the inner HTML contents of the #game div to our html string
         document.querySelector("#game").innerHTML = html;
