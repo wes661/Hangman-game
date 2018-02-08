@@ -1,5 +1,5 @@
 //Create an array of words
-var words = [" mario", " zelda", " metroid", " kirby", " contra", " starfox", " tetris"];
+var words = [" mario", " zelda", " metroid", " kirby", " contra", " starfox"];
 //Choose word randomly
 
 var randWord = Math.floor(Math.random() * words.length);
