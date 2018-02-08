@@ -47,10 +47,14 @@ document.addEventListener("keypress", (event) => {
 			
 			alert("You Win!");
 			wins++;
+				
 			
 		}
 	
-		
+		var html =
+			"<p>Guess a letter A-Z" + "</p>";
+
+		document.querySelector("#start").innerHTML = html;
 
 		var html =
           "<p>Word: " + blankSpaces.join(' ') + "</p>" +
@@ -70,15 +74,17 @@ document.addEventListener("keypress", (event) => {
 			guessesLeft--;
 		}
 
-		if (guessesLeft == 0){
-			alert("Game Over")
+		if (guessesLeft === 0){
+			alert("Game Over");
+
 		}
 			
 
 		var html =
           "<p>Incorrect Guess: " + incorrectWord.join(' ') + "</p>" +
           "<br>" +
-          "<p>Guesses Left: " + guessesLeft + "<p>";
+          "<p>Guesses Left: " + guessesLeft + "<p>" + 
+          "<br>";
         // Set the inner HTML contents of the #game div to our html string
         document.querySelector("#incorrectGuess").innerHTML = html;
 
