@@ -1,5 +1,5 @@
 //Create an array of words
-var words = [" mario", " zelda", " metroid", " kirby", " contra", " starfox"];
+var words = [" mario", " zelda", " metroid", " kirby", " contra", " starfox", " tetris"];
 //Choose word randomly
 
 var randWord = Math.floor(Math.random() * words.length);
@@ -9,6 +9,8 @@ var correctWord = [];
 var incorrectWord = [];
 var guessesLeft = 12
 var wins = 0
+
+
 console.log(chosenWord);
 
 
@@ -25,7 +27,16 @@ var blankWord = () => {
 	return blankSpaces;
 
 
-	
+function start() {
+    var randWord = Math.floor(Math.random() * words.length);
+    var chosenWord = words[randWord];
+    var blankSpaces = [];
+    var correctWord = [];
+    var incorrectWord = [];
+    var guessesLeft = 12;
+    
+
+	}	
 }
 
 		
@@ -33,20 +44,24 @@ var blankWord = () => {
 console.log(blankWord());
 
 //Get user guess
-document.addEventListener("keypress", (event) => {
-	var keycode = event.keyCode;
-	var letterSelect = String.fromCharCode(keycode);
+document.onkeyup = function(event) {
+	var userGuess = event.key;
 	
-	if(chosenWord.indexOf(letterSelect) > -1){
+	
+	if(chosenWord.indexOf(userGuess) > -1){
 
-		correctWord.push(letterSelect);
+		correctWord.push(userGuess);
 
 		
-		blankSpaces[chosenWord.indexOf(letterSelect)] = letterSelect;
+		blankSpaces[chosenWord.indexOf(userGuess)] = userGuess;
 		if(blankSpaces.join('') == chosenWord) {
 			
 			alert("You Win!");
 			wins++;
+
+			
+			
+
 				
 			
 		}
@@ -67,7 +82,7 @@ document.addEventListener("keypress", (event) => {
 	}	
 
 		else {
-		incorrectWord.push(letterSelect);
+		incorrectWord.push(userGuess);
 		console.log(incorrectWord);
 
 		if (incorrectWord !== correctWord){
@@ -91,9 +106,7 @@ document.addEventListener("keypress", (event) => {
 
 		}
 
-
-
-});
+};
 
 
 
