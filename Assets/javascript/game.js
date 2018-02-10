@@ -8,8 +8,9 @@ var chosenWord = words[randWord];
 var blankSpaces = [];
 var correctWord = [];
 var incorrectWord = [];
-var guessesLeft = 12;
+var guessesLeft = 10;
 var wins = 0;
+var losses = 0;
 var remaining = document.getElementById("gameWord"); 
 	remaining.innerHTML = ' _ '.repeat(chosenWord.length);
 
@@ -43,16 +44,20 @@ function start() {
 	
      correctWord = [];
      incorrectWord = [];
-     guessesLeft = 12;
-     
-    remaining = document.getElementById("gameWord"); 
-	remaining.innerHTML =  ' _ '.repeat(chosenWord.length);
-	html =
+     guessesLeft = 10;
+
+     remaining = document.getElementById("gameWord"); 
+	remaining.innerHTML = ' _ '.repeat(chosenWord.length);
+
+	html =  
           "<p>Incorrect Guess: " + incorrectWord.join(' ') + "</p>" +
           "<br>" +
           "<p>Guesses Left: " + guessesLeft + "<p>" + 
           "<br>";
         document.querySelector("#incorrectGuess").innerHTML = html;
+     
+     
+    
 	console.log(chosenWord);
 }
 //End function	
@@ -79,9 +84,8 @@ document.onkeyup = function(event) {
 
 		blankSpaces[chosenWord.indexOf(userGuess)] = userGuess;
 		if(blankSpaces.join('') == chosenWord) {
-			
-			alert("You Win!");
 			wins++;
+			alert("You Win!");
 			start();
 		}
 	
@@ -92,7 +96,7 @@ document.onkeyup = function(event) {
 		var html =
           "<p>Word: <span id=\"gameWord\">" + blankSpaces.join(' ') + "</span></p>" +
           "<br>" +
-          "<p>Wins: " + wins + "</p>"; 
+          "<p>Wins: " + wins + "</p>";
           document.querySelector("#game").innerHTML = html;
 		}	
 
@@ -103,15 +107,22 @@ document.onkeyup = function(event) {
 
 		if (incorrectWord !== correctWord){
 			guessesLeft--;
+
 		}
 
 		if (guessesLeft === 0){
+			losses++;
 			alert("Game Over");
 			start();
 		}
-			
+		
+		
 
 		var html =
+		  "<p>Losses: " + losses + "</p>";
+		document.querySelector("#lost").innerHTML = html;  
+
+		var html =  
           "<p>Incorrect Guess: " + incorrectWord.join(' ') + "</p>" +
           "<br>" +
           "<p>Guesses Left: " + guessesLeft + "<p>" + 
