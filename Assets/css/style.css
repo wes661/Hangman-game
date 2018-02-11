@@ -1,8 +1,16 @@
 body{
 	background-image: url("../images/62898932-nes-wallpapers.png");
-	color: white;
+	color: #af3c3e;
 
-}	
+}
+
+.hidden{
+ display: none;   
+}
+
+.container{
+	display: none;
+}
 
 h1{
 	font-family: 'Rammetto One', cursive;
@@ -18,7 +26,7 @@ h3{
 }
 
 .containerBG{
-	opacity: .7;
+	opacity: ;
 }
 
 .container{
@@ -30,7 +38,7 @@ h3{
 	padding-top: 50px;
 	padding-bottom: 50px;
 	width: 400px;
-	background-color: gray;
+	background-color: #aaa3ad;
 	border-radius: 15px;
 	border-style: ridge;
 	font-size: 20px;

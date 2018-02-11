@@ -14,6 +14,11 @@ var losses = 0;
 var remaining = document.getElementById("gameWord"); 
 	remaining.innerHTML = ' _ '.repeat(chosenWord.length);
 
+	$(document).ready(function(){
+    $('.hidden').slideDown(2000);
+    $('.container').slideDown(3000);
+});
+
 //Chosen word displayed as underscores
 function blankWord() {
 	for(var i = 0; i < chosenWord.length; i++ ) {
@@ -33,7 +38,8 @@ function start() {
     guessesLeft = 8;
 	blankWord();
 	
-
+	remaining = document.getElementById("gameWord"); 
+	remaining.innerHTML = ' _ '.repeat(chosenWord.length);
 
 	html =  
           "<p>Incorrect Guess: " + incorrectWord.join(' ') + "</p>" +
