@@ -1,5 +1,5 @@
 //Create an array of words
-var words = ["mario", "zelda", "metroid", "kirby", "contra", "starfox"];
+var words = ["mario", "zelda", "metroid", "kirby", "contra", "starfox",];
 //Array of letters a-z
 var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 //Choose word randomly
@@ -8,55 +8,40 @@ var chosenWord = words[randWord];
 var blankSpaces = [];
 var correctWord = [];
 var incorrectWord = [];
-var guessesLeft = 10;
+var guessesLeft = 8;
 var wins = 0;
 var losses = 0;
 var remaining = document.getElementById("gameWord"); 
 	remaining.innerHTML = ' _ '.repeat(chosenWord.length);
 
 //Chosen word displayed as underscores
-var blankWord = () => {
+function blankWord() {
 	for(var i = 0; i < chosenWord.length; i++ ) {
 		blankSpaces.push("_");
-
-
-		
 	}
 	return blankSpaces;
 
-		
 }
 
-//Function to start game over after win or loss (not working correctly)
+//Function to start game over after win or loss
 function start() {
-	blankSpaces = [];
 	randWord = Math.floor(Math.random() * words.length);
 	chosenWord = words[randWord];
-	blankWord = () => {
-	for(var i = 0; i < chosenWord.length; i++ ) {
-		blankSpaces.push("_");
-		console.log(blankWord());
-		
-	}
-	return blankSpaces;
-		
-	}
+	blankSpaces = [];
+	correctWord = [];
+    incorrectWord = [];
+    guessesLeft = 8;
+	blankWord();
 	
-     correctWord = [];
-     incorrectWord = [];
-     guessesLeft = 10;
 
-     remaining = document.getElementById("gameWord"); 
-	remaining.innerHTML = ' _ '.repeat(chosenWord.length);
 
 	html =  
           "<p>Incorrect Guess: " + incorrectWord.join(' ') + "</p>" +
           "<br>" +
-          "<p>Guesses Left: " + guessesLeft + "<p>" + 
-          "<br>";
+          "<p>Guesses Left: " + guessesLeft + "<p>"
         document.querySelector("#incorrectGuess").innerHTML = html;
      
-     
+     console.log(blankSpaces);
     
 	console.log(chosenWord);
 }
@@ -125,8 +110,7 @@ document.onkeyup = function(event) {
 		var html =  
           "<p>Incorrect Guess: " + incorrectWord.join(' ') + "</p>" +
           "<br>" +
-          "<p>Guesses Left: " + guessesLeft + "<p>" + 
-          "<br>";
+          "<p>Guesses Left: " + guessesLeft + "<p>";
         document.querySelector("#incorrectGuess").innerHTML = html;
 	} 
 };
